@@ -79,6 +79,7 @@ public class Answer
 
     static void Cifry_chisla()
     {
+        string sborka_stroki = null;
         Console.WriteLine("Выводим через запятую все цифры числа");
         Console.WriteLine("Введите натуральное число");
         string a = Console.ReadLine();
@@ -93,11 +94,20 @@ public class Answer
             {
                 if (b < 10)
                 {
-                    Console.Write(b % 10);
+                    sborka_stroki = Convert.ToString(b % 10 + ",") + sborka_stroki;
+                    Console.Write(sborka_stroki);
+
                 }
                 else
                 {
-                    Console.Write(b % 10 + ",");
+                    if (b == Convert.ToInt32(a))
+                    {
+                        sborka_stroki = Convert.ToString(b % 10) + sborka_stroki;
+                    }
+                    else
+                    {
+                        sborka_stroki = Convert.ToString(b % 10 + ",") + sborka_stroki;
+                    }
                 }
                 b = b / 10;
             }
