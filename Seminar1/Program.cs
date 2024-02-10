@@ -1,7 +1,7 @@
 ﻿using System;
 
 //ЗАДАЧА 1
-/*public class Answer {
+public class Answer {
     static void CompareNumbers(int firstNumber, int secondNumber)
     {
         // Введите свое решение ниже
@@ -38,7 +38,7 @@
         // Не удаляйте строки ниже
         CompareNumbers(firstNumber, secondNumber);
     }
-}*/
+}
 
 //ЗАДАЧА 2
 /*public class Answer {
@@ -134,6 +134,7 @@
 
 //Math.Pow Математический класс с множеством методов
 
+/*
 Console.WriteLine ("Введите два числа");
 int firstNumber = Convert.ToInt32(Console.ReadLine ());
 int secondNumber = Convert.ToInt32(Console.ReadLine ());
@@ -145,3 +146,4 @@ else
 {
     Console.WriteLine("Первое число НЕкратно второму");  
 }
+*/
