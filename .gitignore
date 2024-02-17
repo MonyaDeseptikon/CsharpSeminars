@@ -11,7 +11,7 @@
 *.suo
 *.user
 *.sln.docstates
-
+Seminars.sln
 # Build results
 [Dd]ebug/
 [Rr]elease/
