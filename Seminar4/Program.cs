@@ -28,24 +28,37 @@ public class Answer
 
     static void ArrayReverse()
     {
-        Console.WriteLine("Определяем наибольшую цифру двузначного числа");
-        Console.WriteLine("Введите число для проверки от 10 до 99 (включительно)");
-        int a = Convert.ToInt32(Console.ReadLine());
-        if (a / 10 == a % 10)
+        int ArraySize = Convert.ToInt32(read_line("Введите размер массива"));
+        int minRange = 0;
+        int maxRange = 100;
+        int[] myArray = CreateArray(ArraySize, minRange, maxRange); //
+        Console.WriteLine(String.Join(", ", myArray));
+        int temp;
+        for (int i = 0; i < ArraySize / 2; i++)
         {
-            Console.WriteLine("Цифры равны");
+            temp = myArray[i];
+            myArray[i] = myArray[ArraySize - 1 - i];
+            myArray[ArraySize - 1 - i] = temp;
         }
-        else
-        {
-            if (a / 10 > a % 10)
-            {
-                Console.WriteLine("Первая цифра числа больше");
-            }
-            else
-            {
-                Console.WriteLine("Вторая цифра числа больше");
-            }
-        }
+        Console.WriteLine(String.Join(", ", myArray));
+        // Console.WriteLine("Определяем наибольшую цифру двузначного числа");
+        // Console.WriteLine("Введите число для проверки от 10 до 99 (включительно)");
+        // int a = Convert.ToInt32(Console.ReadLine());
+        // if (a / 10 == a % 10)
+        // {
+        //     Console.WriteLine("Цифры равны");
+        // }
+        // else
+        // {
+        //     if (a / 10 > a % 10)
+        //     {
+        //         Console.WriteLine("Первая цифра числа больше");
+        //     }
+        //     else
+        //     {
+        //         Console.WriteLine("Вторая цифра числа больше");
+        //     }
+        // }
     }
 
     static void NeverEnding()
@@ -118,7 +131,7 @@ public class Answer
         {
             while (number > 3 || number < 1)
             {
-                
+
                 Console.WriteLine("Задача 1: Напишите программу, которая бесконечно запрашивает целые числа с консоли. Программа завершается при вводе символа ‘q’ или при вводе числа, сумма цифр которого чётная.");
                 Console.WriteLine("Задача 2: Задайте массив заполненный случайными трёхзначными числами. Напишите программу, которая покажет количество чётных чисел в массиве.");
                 Console.WriteLine("Задача 3: Напишите программу, которая перевернёт одномерный массив (первый элемент станет последним, второй – предпоследним и т.д.)");
