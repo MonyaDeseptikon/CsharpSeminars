@@ -222,9 +222,7 @@ class Answer
 }
 */
 
-
-
-/*ЗАДАЧА3*/
+/*ЗАДАЧА3
 //Задайте прямоугольный двумерный массив. Напишите программу, которая будет находить строку с наименьшей суммой элементов.
 //Тело класса будет написано студентом. Класс обязан иметь статический метод PrintResult()
 class UserInputToCompileForTest
@@ -317,5 +315,95 @@ class Answer
     };
         }
         UserInputToCompileForTest.PrintResult(numbers);
+    }
+}
+*/
+
+
+/*ЗАДАЧА4 (факультативная)*/
+// Задайте двумерный массив 
+// из целых чисел. Напишите программу, которая удалит 
+// строку и столбец, на пересечении которых расположен 
+// наименьший элемент массива. Под удалением 
+// понимается создание нового двумерного массива без 
+// строки и столбца
+class Program
+{
+    public static void Main()
+    {
+        int[,] numbers = new int[,] {
+                {1, 2, 3},
+                {1, 1, 0},
+                {7, 8, 2},
+                {9, 10, 11}};
+        Program.PrintArray(numbers);
+        Console.WriteLine();
+        Program.findMinNumber(out int minNumRow, out int minNumCol, numbers);
+        Console.WriteLine(minNumRow + "," + minNumCol);
+        //Program.DelRowColMinNumber(minNumRow, minNumCol, numbers);
+        Program.PrintArray(Program.DelRowColMinNumber(minNumRow, minNumCol, numbers));
+
+
+
+    }
+
+
+
+    public static void findMinNumber(out int minNumRow, out int minNumCol, int[,] array)
+    {
+        int min = array[0, 0];
+        minNumRow = 0;
+        minNumCol = 0;
+        for (int i = 0; i < array.GetLength(0); i++)
+        {
+
+            for (int j = 0; j < array.GetLength(1); j++)
+            {
+                if (array[i, j] < min)
+                {
+                    min = array[i, j];
+                    minNumRow = i;
+                    minNumCol = j;
+                }
+            }
+
+        }
+
+    }
+
+    public static void PrintArray(int[,] array)
+    {
+        //Напишите свое решение здесь
+        for (int i = 0; i < array.GetLength(0); i++)
+        {
+            for (int j = 0; j < array.GetLength(1); j++)
+            {
+                Console.Write(array[i, j] + "\t");
+            }
+            Console.WriteLine();
+        }
+    }
+
+    public static int[,] DelRowColMinNumber(int minNumRow, int minNumCol, int[,] numbers)
+    {
+        int[,] newArray = new int[(numbers.GetLength(0) - 1), (numbers.GetLength(1) - 1)];
+        int k = 0;
+
+        for (int i = 0; i < numbers.GetLength(0); i++)
+        {
+            int m = 0;
+            if (i == minNumRow)
+                continue;
+            for (int j = 0; j < numbers.GetLength(1); j++)
+            {
+                if (j == minNumCol)
+                    continue;
+                newArray[k, m] = numbers[i, j];
+                m = m + 1;
+
+            }
+            k = k + 1;
+        }
+        return newArray;
     }
 }
