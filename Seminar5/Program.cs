@@ -340,15 +340,11 @@ class Program
         Console.WriteLine();
         Program.findMinNumber(out int minNumRow, out int minNumCol, numbers);
         Console.WriteLine(minNumRow + "," + minNumCol);
-        //Program.DelRowColMinNumber(minNumRow, minNumCol, numbers);
         Program.PrintArray(Program.DelRowColMinNumber(minNumRow, minNumCol, numbers));
 
 
 
     }
-
-
-
     public static void findMinNumber(out int minNumRow, out int minNumCol, int[,] array)
     {
         int min = array[0, 0];
@@ -399,10 +395,10 @@ class Program
                 if (j == minNumCol)
                     continue;
                 newArray[k, m] = numbers[i, j];
-                m = m + 1;
+                m++;
 
             }
-            k = k + 1;
+            k++;
         }
         return newArray;
     }
